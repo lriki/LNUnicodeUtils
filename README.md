@@ -6,4 +6,5 @@ Utility class to do the word counting and interconversion, unauthorized check se
 
 ## Licence
 
+The zlib/libpng License
 [zlib](http://opensource.org/licenses/zlib-license.php)
