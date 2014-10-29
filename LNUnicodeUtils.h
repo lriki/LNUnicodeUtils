@@ -264,6 +264,8 @@ private:
 	/// 不正文字を許容するか？
 	static bool IsStrictConversion(const UTFConversionOptions* options) { return (options->ReplacementChar == 0); }
 
+	/// オプション構造体の初期化
+	static void InitOptions(UTFConversionOptions* options);
 };
 
 } // namespace LN

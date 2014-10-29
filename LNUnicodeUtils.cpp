@@ -72,6 +72,8 @@ UTFConversionResult UnicodeUtils::ConvertUTF8toUTF16 (
 	const UTF8*			sourceEnd = source + sourceLength;
     UTF16*				target = targetStart;
     UTF16*				targetEnd = target + targetLength;
+	
+	InitOptions(options);
 
 	while (source < sourceEnd)
 	{
@@ -113,6 +115,8 @@ UTFConversionResult UnicodeUtils::ConvertUTF8toUTF32(
     UTF32*				target = targetStart;
     UTF32*				targetEnd = target + targetLength;
 
+	InitOptions(options);
+	
 	while (source < sourceEnd)
 	{
 		 const UTF8* oldSource = source;	// backup
@@ -190,6 +194,8 @@ UTFConversionResult UnicodeUtils::ConvertUTF16toUTF8(
     UTF8*				target = targetStart;
     UTF8*				targetEnd = target + targetLength;
 
+	InitOptions(options);
+	
 	while (source < sourceEnd)
 	{
 		const UTF16* oldSource = source;
@@ -233,6 +239,8 @@ UTFConversionResult UnicodeUtils::ConvertUTF16toUTF32(
     UTF32*				target = targetStart;
     UTF32*				targetEnd = target + targetLength;
 
+	InitOptions(options);
+	
 	while (source < sourceEnd)
 	{
 		const UTF16* oldSource = source;
@@ -280,6 +288,8 @@ UTFConversionResult UnicodeUtils::ConvertUTF32toUTF8(
     UTF8*				target = targetStart;
     UTF8*				targetEnd = target + targetLength;
 
+	InitOptions(options);
+	
     while (source < sourceEnd)
 	{
 		const UTF32* oldSource = source;	// backup
@@ -331,6 +341,8 @@ UTFConversionResult UnicodeUtils::ConvertUTF32toUTF16(
     UTF16*				target = targetStart;
     UTF16*				targetEnd = target + targetLength;
 
+	InitOptions(options);
+	
     while (source < sourceEnd)
 	{
 		// 出力バッファのサイズチェック
@@ -801,4 +813,15 @@ bool UnicodeUtils::IsLegalUTF8(const UTF8 *source, int length)
     return true;
 }
 
+//---------------------------------------------------------------------
+//
+//---------------------------------------------------------------------
+void UnicodeUtils::InitOptions(UTFConversionOptions* options)
+{
+	options->ConvertedSourceLength = 0;
+	options->ConvertedTargetLength = 0;
+	options->CharCount = 0;
+	options->IllegalCharCount = 0;
+}
+	
 } // namespace LN
